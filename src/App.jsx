@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TimezoneList from './components/TimezoneList';
 import TimeSlider from './components/TimeSlider';
 import DatePickerComponent from './components/DatePickerComponent';
-import DarkModeToggle from './components/DarkModeToggle';
+
 import TimezoneSelector from './components/TimeZoneSelector';
 import GenerateLink from './components/GenerateLink';
 import GoogleMeetScheduler from './components/GoogleMeetScheduler';
@@ -15,11 +15,11 @@ import './App.css';
 function App() {
   const [timezones, setTimezones] = useState([]);
   const [selectedTime, setSelectedTime] = useState(new Date());
-  const [darkMode, setDarkMode] = useState(false);
+ 
 
   return (
     <Router>
-      <div className={darkMode ? 'dark-mode' : ''}>
+      
         <Header />
         <div className="container">
           {/* <div className="centered-content">
@@ -60,7 +60,7 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
         </div>
-      </div>
+      
     </Router>
   );
 }
