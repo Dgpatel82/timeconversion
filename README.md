@@ -28,10 +28,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `node ./server.js`
 
-Run the backend server.\
+Run the backend server.
 
-Google Meet Schedule Functionality runs when node server is running.\
-
-In Provided Public URL (timeconvertor.netlify.app) Google Meet Schedule functionality  is not working as we can not run backend server in netlify.\
+Google Meet Schedule Functionality runs when node server is running.
+ 
+In Provided Public URL (https://timeconvertor.netlify.app) Google Meet Schedule functionality  is not working as we can not run backend server in netlify.
 
 So this functionality is shown in provided video.
