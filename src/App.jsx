@@ -41,41 +41,41 @@ function App() {
 
   return (
     <Router>
-      <Header />
-      <div className="container">
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <>
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <>
                 <div className="centered-content"> 
                   <h1>Welcome to the TimeZone Converter</h1>
                 </div>
-                <div className="component-wrapper">
-                  <DatePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
-                </div>
-                <div className="component-wrapper">
-                  <TimeSlider selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
-                </div>
-                <div className="component-wrapper">
-                  <TimezoneSelector timezones={timezones} setTimezones={setTimezones} />
-                </div>
-                <div className="component-wrapper">
-                  <TimezoneList timezones={timezones} selectedTime={selectedTime} setTimezones={setTimezones} />
-                </div>
-                <div className="component-wrapper">
-                  <GenerateLink timezones={timezones} selectedTime={selectedTime} />
-                </div>
-                <div className="component-wrapper">
-                  <GoogleMeetScheduler selectedTime={selectedTime} />
-                </div>
-              </>
-            }
-          />
-          <Route path="/about-timezone" element={<AboutTimeZone />} />
-          <Route path="/about-us" element={<AboutUs />} />
-        </Routes>
-      </div>
+                  <div className="component-wrapper">
+                    <DatePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+                  </div>
+                  <div className="component-wrapper">
+                    <TimeSlider selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+                  </div>
+                  <div className="component-wrapper">
+                    <TimezoneSelector timezones={timezones} setTimezones={setTimezones} />
+                  </div>
+                  <div className="component-wrapper">
+                    <TimezoneList timezones={timezones} selectedTime={selectedTime} setTimezones={setTimezones} />
+                  </div>
+                  <div className="component-wrapper">
+                    <GenerateLink timezones={timezones} selectedTime={selectedTime} />
+                  </div>
+                  <div className="component-wrapper">
+                    <GoogleMeetScheduler selectedTime={selectedTime} />
+                  </div>
+                </>
+              }
+            />
+            <Route path="/about-timezone" element={<AboutTimeZone />} />
+            <Route path="/about-us" element={<AboutUs />} />
+          </Routes>
+        </div>
     </Router>
   );
 }
