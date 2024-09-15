@@ -8,8 +8,8 @@ function GoogleMeetScheduler({ selectedTime }) {
 
   const scheduleGoogleMeet = async () => {
     setIsLoading(true);
-    const startTime = selectedTime.toISOString(); // Assuming this is the correct date
-    const endTime = new Date(selectedTime.getTime() + 2* 60 * 60 * 1000).toISOString(); // 1-hour meeting
+    const startTime = selectedTime.toISOString(); 
+    const endTime = new Date(selectedTime.getTime() + 2* 60 * 60 * 1000).toISOString(); // 2-hour meeting
 
     try {
       const response = await axios.post('http://localhost:5001/schedule', {

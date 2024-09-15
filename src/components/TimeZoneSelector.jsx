@@ -42,7 +42,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px; /* Increased margin-top to create more space */
+  margin-top: 40px; 
 `;
 
 const Select = styled.select`
@@ -53,8 +53,8 @@ const Select = styled.select`
   background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 10px; /* Margin bottom for spacing between select and button */
-
+  margin-bottom: 10px; 
+  
   &:focus {
     border-color: #61dafb;
     outline: none;

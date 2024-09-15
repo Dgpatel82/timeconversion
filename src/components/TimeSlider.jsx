@@ -30,7 +30,7 @@ const TimeSlider = ({ selectedTime, setSelectedTime }) => {
 
   return (
     <SliderContainer>
-      {/* Label for local time */}
+      
       <Label>Local Time</Label>
 
       {/* Display the selected time in human-readable format */}
@@ -48,9 +48,9 @@ const TimeSlider = ({ selectedTime, setSelectedTime }) => {
         />
         {/* Numeric labels for key time intervals */}
         <Labels>
-          {Array.from({ length: 24 }).map((_, index) => {
+          {Array.from({ length: 25 }).map((_, index) => {
             const hour = index % 12 || 12; // Convert 24-hour to 12-hour format
-            const position = (index / 23) * 100; // Position percentage for each label
+            const position = (index / 24) * 100; // Position percentage for each label
             return (
               <LabelKey key={index} style={{ left: `${position}%` }}>
                 {hour}
@@ -60,18 +60,18 @@ const TimeSlider = ({ selectedTime, setSelectedTime }) => {
         </Labels>
         {/* Hour markers */}
         <HourMarkers>
-          {Array.from({ length: 24 }).map((_, index) => (
-            <Marker key={index} style={{ left: `${(index / 23) * 100}%` }} />
+          {Array.from({ length: 25 }).map((_, index) => (
+            <Marker key={index} style={{ left: `${(index / 24) * 100}%` }} />
           ))}
         </HourMarkers>
-        {/* Slider cutter (visual indicator) */}
+        {/* Slider cutter */}
         <Cutter style={{ left: `${(timeInMinutes / 1439) * 100}%` }} />
       </SliderWrapper>
     </SliderContainer>
   );
 };
 
-// Styled components for slider and time display
+
 const SliderContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -100,37 +100,37 @@ const SliderWrapper = styled.div`
 `;
 
 const Slider = styled.input`
-  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+  -webkit-appearance: none; 
   width: 100%;
   height: 8px;
-  background: linear-gradient(90deg, #d3d3d3 ${props => props.value / 1439 * 100}%, #f5f5f5 ${props => props.value / 1439 * 100}%); /* Light grey colors */
+  background: linear-gradient(90deg, #d3d3d3 ${props => props.value / 1439 * 100}%, #f5f5f5 ${props => props.value / 1439 * 100}%); 
   border-radius: 5px;
   outline: none;
   margin-top: 10px;
   position: relative;
-  z-index: 1; /* Ensure slider is above labels and cutters */
+  z-index: 1; 
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #d3d3d3; /* Light grey */
+    background: #d3d3d3; 
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     position: relative;
-    z-index: 2; /* Ensure thumb is above labels and cutters */
+    z-index: 2; 
   }
 
   &::-moz-range-thumb {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #d3d3d3; /* Light grey */
+    background: #d3d3d3; 
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     position: relative;
-    z-index: 2; /* Ensure thumb is above labels and cutters */
+    z-index: 2; 
   }
 `;
 
@@ -143,7 +143,7 @@ const Labels = styled.div`
   margin-top: 5px;
   font-size: 12px;
   color: #333;
-  pointer-events: none; /* Ensure labels do not interfere with slider interaction */
+  pointer-events: none; 
 `;
 
 const LabelKey = styled.div`
@@ -155,14 +155,14 @@ const HourMarkers = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
-  pointer-events: none; /* Ensure markers do not interfere with slider interaction */
+  pointer-events: none; 
 `;
 
 const Marker = styled.div`
   position: absolute;
   width: 1px;
   height: 24px;
-  background: #888; /* Light grey marker color */
+  background: #888; 
   transform: translateX(-50%);
 `;
 
@@ -171,9 +171,9 @@ const Cutter = styled.div`
   top: 0;
   width: 2px;
   height: 24px;
-  background: #888; /* Light grey cutter color */
+  background: #888; 
   transform: translateX(-50%);
-  pointer-events: none; /* Ensure cutter does not interfere with slider interaction */
+  pointer-events: none; 
 `;
 
 export default TimeSlider;

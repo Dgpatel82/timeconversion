@@ -42,7 +42,7 @@ const styles = {
     transform: 'translateY(-50%)',
     fontSize: '1.2rem',
     color: '#333',
-    pointerEvents: 'none', // Make sure the icon does not interfere with date picking
+    pointerEvents: 'none', 
   },
 };
 

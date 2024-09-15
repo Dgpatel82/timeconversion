@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import { FaGripVertical } from 'react-icons/fa'; // Drag icon
 
 function TimezoneList({ timezones, selectedTime, setTimezones }) {
+  // Default timezones (IST and UTC)
+  useEffect(() => {
+    if (timezones.length === 0) {
+      setTimezones([
+        { label: 'Indian Standard Time', value: 'Asia/Kolkata' },
+        { label: 'Coordinated Universal Time', value: 'UTC' },
+      ]);
+    }
+  }, [setTimezones, timezones.length]);
+
   const handleOnDragEnd = (result) => {
     if (!result.destination) return;
     const items = Array.from(timezones);
@@ -28,6 +39,9 @@ function TimezoneList({ timezones, selectedTime, setTimezones }) {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
+                    <DragIcon {...provided.dragHandleProps}>
+                      <FaGripVertical />
+                    </DragIcon>
                     <TimezoneInfo>
                       {timezone.label} - {selectedTime.toLocaleString('en-US', { timeZone: timezone.value })}
                     </TimezoneInfo>
@@ -73,9 +87,18 @@ const DraggableItem = styled.div`
   }
 `;
 
+const DragIcon = styled.div`
+  margin-right: 10px;
+  cursor: grab;
+  margin-top:8px;
+  font-size: 18px;
+  color: #888;
+`;
+
 const TimezoneInfo = styled.div`
   font-size: 16px;
   color: #333;
+  flex-grow: 1;
 `;
 
 const RemoveButton = styled.button`
